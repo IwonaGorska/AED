@@ -4,18 +4,18 @@ import pandas as pd
 
 def zad1():
     x = datasets.load_wine()
-    print(x)
+    print("Dane o winach: ", x)
 
 def zad2():
     x = datasets.load_wine(as_frame="true")
     X_train, X_test, y_train, y_test = model_selection.train_test_split(x.data,x.target,test_size=0.4)
-    print(X_test)
+    print("X test: ", X_test)
     print("-------------------")
-    print(X_train)
+    print("X train: ", X_train)
     print("-------------------")
-    print(y_test)
+    print("Y test: ", y_test)
     print("-------------------")
-    print(y_train)
+    print("Y train: ", y_train)
     print("-------------------")
     pd.DataFrame.to_csv(X_test, 'out/X_test.csv')
     pd.DataFrame.to_csv(X_train, 'out/X_train.csv')
@@ -31,31 +31,30 @@ def zad3_analyse(dataset):
     maxValue = pd.DataFrame.max()
     minValue = pd.DataFrame.min()
     commonValue = pd.DataFrame.mode()
-    print(valueCount)
+    print("Ilosc wartosci: ", valueCount)
     print("--------------------")
-    print(uniqueValueCount)
+    print("Ilosc wartosci unikatowych: ", uniqueValueCount)
     print("--------------------")
-    print(meanValue)
+    print("Wartosc srednia w zbiorze: ", meanValue)
     print("--------------------")
-    print(numberOfNulls)
+    print("Ilosc wartosci null: ", numberOfNulls)
     print("--------------------")
-    print(maxValue)
+    print("Wartosc maksymalna: ", maxValue)
     print("--------------------")
-    print(minValue)
+    print("Wartosc minimalna: ", minValue)
     print("--------------------")
-    print(commonValue)
+    print("Wartosc najczesciej wystepujaca w zbiorze: ", commonValue)
     print("********************")
 
 
 def zad3():
-    X_train = pd.read_csv('out/X_train.csv');
-    y_train = pd.read_csv('out/y_train.csv');
-    X_test = pd.read_csv('out/X_test.csv');
-    y_test = pd.read_csv('out/y_test.csv');
+    X_train = pd.read_csv('out/X_train.csv')
+    y_train = pd.read_csv('out/y_train.csv')
+    X_test = pd.read_csv('out/X_test.csv')
+    y_test = pd.read_csv('out/y_test.csv')
     zad3_analyse(X_train)
     zad3_analyse(y_train)
     zad3_analyse(X_test)
     zad3_analyse(y_test)
-
 
 zad3()
